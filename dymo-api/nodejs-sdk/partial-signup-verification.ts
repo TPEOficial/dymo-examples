@@ -24,16 +24,16 @@ async function checkSignUp({
             ip      // User IP.
         });
 
-        // Email cheks.
+        // Email checks.
         if (!response.email.valid) return { pass: false, message: "Use a valid email." };
         if (response.email.fraud) return { pass: false, message: "Use your real email." };
         if (response.email.proxiedEmail) return { pass: false, message: "Use your real email." };
 
-        // Phone cheks.
+        // Phone checks.
         if (!response.phone.valid) return { pass: false, message: "Phone is not valid." };
         if (response.phone.fraud) return { pass: false, message: "Use your real phone." };
 
-        // IP cheks.
+        // IP checks.
         if (!response.ip.valid) return { pass: false, message: "IP is not valid." };
         if (response.ip.fraud) return { pass: false, message: "Use your real IP." };
 
