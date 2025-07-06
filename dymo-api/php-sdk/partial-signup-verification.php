@@ -4,16 +4,17 @@ require "vendor/autoload.php";
 
 use TPEOficial\DymoAPI;
 
-function checkSignUp(string $email, string $phone, string $ip): array {
+function checkSignUp(string $email, string $phone, string $ip, string $userAgent): array {
     $dymoClient = new DymoAPI([
         "api_key" => "PRIVATE_TOKEN_HERE"
     ]);
 
     try {
         $response = $dymoClient->isValidData([
-            "email" => $email,  // User's email address.
-            "phone" => $phone,  // If requested by the user (recommended).
-            "ip" => $ip         // User IP.
+            "email" => $email,         // User's email address.
+            "phone" => $phone,         // If requested by the user (recommended).
+            "ip" => $ip,               // User IP.
+            "userAgent" => $userAgent  // User agent.
         ]);
 
         // Email checks.
@@ -29,6 +30,11 @@ function checkSignUp(string $email, string $phone, string $ip): array {
         // IP checks.
         if (!$response->ip->valid) return ["pass" => false, "message" => "IP is not valid."];
         if ($response->ip->fraud) return ["pass" => false, "message" => "Use your real IP."];
+
+        // User agent checks.
+        if (!$response->userAgent->valid) return ["pass" => false, "message" => "User agent is not valid."];
+        if ($response->userAgent->fraud) return ["pass" => false, "message" => "Use your real user agent."];
+        if ($response->userAgent->fraud) return ["pass" => false, "message" => "Use your real user agent."];
 
         return ["pass" => true, "realEmail" => $response->email->email];
     } catch (Exception $e) {
