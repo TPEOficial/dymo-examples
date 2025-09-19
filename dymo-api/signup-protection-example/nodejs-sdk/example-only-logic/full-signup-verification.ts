@@ -4,17 +4,17 @@ const dymo = new DymoAPI({
     apiKey: "PRIVATE_TOKEN_HERE"
 });
 
-async function checkSignUp({ 
-    email, 
-    phone, 
+async function checkSignUp({
+    email,
+    phone,
     ip,
     userAgent
-}: { 
-    email: string; 
-    phone: string; 
+}: {
+    email: string;
+    phone: string;
     ip: string;
     userAgent: string;
-}): Promise<{ 
+}): Promise<{
     pass: boolean;
     message?: string;
     realEmail?: string;
@@ -48,7 +48,7 @@ async function checkSignUp({
         if (!response.userAgent.valid) return { pass: false, message: "User agent is not valid." };
         if (response.userAgent.fraud) return { pass: false, message: "Use your real user agent." };
         if (response.userAgent.bot) return { pass: false, message: "Use your real user agent." };
-        
+
         return { pass: true, realEmail: response.email.email };
     } catch (error) {
         console.error(error);
