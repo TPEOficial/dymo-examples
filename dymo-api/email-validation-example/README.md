@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>Dymo API for Signup Protection</h1>
-  <h3>Protect your signup from malicious users who attempt to bypass your protections for malicious actions.</h3>
+  <h1>Dymo API for Email Validation</h1>
+  <h3>Validate emails in a single line of code using simple and quick rules.</h3>
   <a href="https://github.com/TPEOficial"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-purple?style=for-the-badge&logo=github&logoColor=white"/></a>
   <br />
   <br />
@@ -17,7 +17,7 @@
   <hr />
 </div>
 
-# Dymo API for Signup Protection
+# Dymo API for Email Validation
 
 Below you will find different examples of how to easily apply Dymo API Signup Protection to your projects.
 
