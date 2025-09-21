@@ -23,8 +23,14 @@ const handler = NextAuth({
                 const decision = await dymoClient.isValidEmail(credentials.email);
                 if (!decision.allow) throw new Error(`Email not allowed. Reason: ${decision.reasons[0]}.`);
 
+                /*
+                * IMPORTANT: It is recommended to use the email provided by the Dymo API decision, 
+                * as it will bring the clean email without aliases or invalid characters that may 
+                * treat an email as several separate ones.
+                */
+
                 // Check user credentials in your database.
-                if (credentials.email === "test@tpeoficial.com" && credentials.password === "1234") return { id: "1", name: "Test User", email: credentials.email };
+                if (decision.email === "test@tpeoficial.com" && credentials.password === "1234") return { id: "1", name: "Test User", email: credentials.email };
 
                 // Return null if authentication fails.
                 return null;

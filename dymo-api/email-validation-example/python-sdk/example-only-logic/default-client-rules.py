@@ -13,3 +13,9 @@ dymo_client = DymoAPI({
 decision = dymo_client.is_valid_email("user@example.com")
 
 if not decision.allow: raise Exception(f"Email not allowed. Reason: {decision.reasons[0]}.")
+
+"""
+    IMPORTANT: It is recommended to use the email provided by the Dymo API decision, 
+    as it will bring the clean email without aliases or invalid characters that may 
+    treat an email as several separate ones.
+"""

@@ -18,4 +18,9 @@ $decision = $dymoClient->isValidEmail("user@example.com", [ "deny" => ["NO_REACH
 
 if (!$decision->allow) throw new Exception("Email not allowed. Reason: {$decision->reasons[0]}.");
 
+    /*
+    * IMPORTANT: It is recommended to use the email provided by the Dymo API decision, 
+    * as it will bring the clean email without aliases or invalid characters that may 
+    * treat an email as several separate ones.
+    */
 ?>

@@ -26,7 +26,7 @@ const handler = NextAuth({
                 console.error("Dymo validation failed:", decision.reasons[0]);
                 return false; // Block OAuth login.
             }
-
+            
             // Allow login if validation passes.
             return true;
         },

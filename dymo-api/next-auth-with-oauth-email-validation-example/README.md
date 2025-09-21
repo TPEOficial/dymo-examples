@@ -17,10 +17,10 @@
   <hr />
 </div>
 
-# Dymo API for Email Validation with OAuth in Next Auth<
+# Dymo API for Email Validation with OAuth in Next Auth
 
-Below you will find different examples of how to easily apply Dymo API Signup Protection to your projects.
+It is a common misconception that using OAuth, such as Google or GitHub, as a method of authentication is a valid way to prevent fraud, multiple accounts, or disposable emails, but this is not the case.
 
-1. First, choose your preferred SDK (or connection method).
-2. Once you access this folder, you will find different examples depending on the technologies and verification levels required for your project.
-3. You can simply copy and paste to easily add it to your project. Just remember to replace your **API Key**.
+At Dymo, we have several million disposable emails that are personal and provided by **disposable email generators for Google/Gmail**, so you can even access them with Google OAuth.
+
+For this reason, you should always check before entering or modifying an email in the database.

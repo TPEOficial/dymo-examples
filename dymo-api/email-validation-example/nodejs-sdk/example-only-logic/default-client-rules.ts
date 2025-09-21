@@ -14,4 +14,10 @@ const dymoClient = new DymoAPI({
     const decision = await dymoClient.isValidEmail("user@example.com");
 
     if (!decision.allow) throw new Error(`Email not allowed. Reason: ${decision.reasons[0]}`);
+
+    /*
+    * IMPORTANT: It is recommended to use the email provided by the Dymo API decision, 
+    * as it will bring the clean email without aliases or invalid characters that may 
+    * treat an email as several separate ones.
+    */
 })();
