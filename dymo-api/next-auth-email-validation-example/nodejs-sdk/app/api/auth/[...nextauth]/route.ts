@@ -29,7 +29,7 @@ const handler = NextAuth({
                 // Return null if authentication fails.
                 return null;
             }
-        })
+        }),
     ],
     pages: {
         signIn: "/auth/signin"
