@@ -12,14 +12,14 @@ const handler = NextAuth({
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
         })
     ],
     pages: {
         signIn: "/auth/signin"
     },
     callbacks: {
-        async signIn({ user: user }: { user: User; }) {
+        async signIn({ user }: { user: User; }) {
             // Validate the email with Dymo API.
             const decision = await dymoClient.isValidEmail(user.email!);
             if (!decision.allow) {

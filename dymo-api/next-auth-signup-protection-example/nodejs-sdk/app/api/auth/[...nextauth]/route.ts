@@ -13,7 +13,7 @@ async function checkSignUp({
     email,
     phone,
     ip,
-    userAgent,
+    userAgent
 }: {
     email: string;
     phone: string;
@@ -59,7 +59,7 @@ async function checkSignUp({
         console.error(error);
         return { pass: true };
     }
-}
+};
 
 const handler = NextAuth({
     providers: [
